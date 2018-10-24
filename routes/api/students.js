@@ -11,13 +11,13 @@ router.post('/add', (req, res) => {
     console.log(req.Body);
     Student.findOne({ name: req.body.name }).then(student => {
         if (student) {
-            errors.name = 'student already exists';
-            return res.status(400).json(errors);
+            return res.status(400).json('student already exists');
         } else {
             const newStudent = new Student({
                 name: req.body.name,
                 level: req.body.level
             });
+
             newStudent.save()
                 .then(student => res.json(student))
                 .catch(err => console.log(err));
