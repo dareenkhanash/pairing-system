@@ -54,7 +54,19 @@ class Pairing extends Component {
 
         return (
             <div>
-                {Pairings}
+                <div className="row">
+                    <div className="col-sm-6 ">
+                        <button class="btn btn-primary">pairing</button>
+                    </div>
+                    <div className="col-sm-6 ">
+                        <button class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+                <br />
+                <div>
+                    {Pairings}
+                </div>
+
             </div>
         )
     }
