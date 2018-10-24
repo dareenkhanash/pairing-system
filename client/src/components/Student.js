@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import StudentGrid from './StudentGrid';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { addStudent } from '../actions/studentActions';
 import axios from 'axios';
 
 class Student extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             name: null,
-            level: null,
-            students: []
-
+            level: null
         }
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -25,9 +26,7 @@ class Student extends Component {
             name: this.state.name,
             level: this.state.level
         }
-        axios.post('api/students/add', newStudent)
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err))
+        this.props.addStudent(newStudent);
     }
     render() {
         return (
@@ -60,10 +59,10 @@ class Student extends Component {
                 </form>
                 <div>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 title">
                             Name
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 title">
                             Levels
                         </div>
                     </div>
@@ -75,4 +74,8 @@ class Student extends Component {
     }
 }
 
-export default Student;
+Student.propTypes = {
+    addStudent: PropTypes.func.isRequired
+}
+
+export default connect(null, { addStudent })(Student);

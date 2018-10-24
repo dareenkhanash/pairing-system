@@ -52,4 +52,12 @@
 ul {
   list-style: none;
 }
+.title{
+border: solid 1px #201746;
+background-color: #337AB7;
+margin-top: 5px;
+}
+.record{
+  border: solid 1px #201746;
+}
 

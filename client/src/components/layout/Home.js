@@ -8,7 +8,7 @@ class Home extends Component {
                 <ul>
                     <li>
                         <Link className="LinkButton" to="/student">
-                            add dtudent
+                            add student
                             </Link>
                     </li>
                     <li>
